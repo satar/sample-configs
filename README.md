@@ -1,2 +1,2 @@
-# My-first-project
-This is a play project.
+# sample config files for use with configserver
+
