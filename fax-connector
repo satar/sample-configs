@@ -1,0 +1,64 @@
+#
+# Not sure why these are required but they are. The connector 
+# should be simply listening on the queue but maybe the idea is
+# we can dynamically create it if it doesn't already exist?
+#
+NE.nconn.fax-all.rabbit.request.exchange=notif-attempt-exchange
+NE.nconn.fax-all.rabbit.request.routingKey=fax-attempt
+
+NE.nconn.fax-all.rabbit.request.queue=fax
+
+#
+# Should be global to all connectors
+#
+NE.nconn.fax-all.rabbit.response.exchange=ne.report
+#
+# This is probably going to become obsolete but still needed to startup
+#
+NE.nconn.fax-all.rabbit.response.routingKey=eb-attempt-event
+
+#NE.nconn.fax-all.mongo.host=${devhost}
+NE.nconn.fax-all.mongo.replica.set=${devhost}:27017
+NE.nconn.fax-all.mongo.port=27017
+NE.nconn.fax-all.mongo.dbname=notification
+NE.nconn.fax-all.mongo.username=
+NE.nconn.fax-all.mongo.password=
+
+NE.nconn.fax-all.freemarker.dir=${CONFIG_DIR}
+NE.nconn.fax-all.freemarker.fax=fax.ftl
+NE.nconn.fax-all.confirm.url=http://localhost:8080/
+
+#
+# metadata services for attachments
+#
+NE.nconn.fax-all.amazon.accessKey=AKIAJOKMKAU2WOVQHDRA
+NE.nconn.fax-all.amazon.accessSecret=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
+NE.nconn.fax-all.amazon.bucket=notification.uploads
+
+#
+# Protus fax provider 
+#
+## Max number of time a retry will be attempted
+NE.nconn.fax-all.protus.retry.limit=3
+## Number of miliseconds before a retry is attempted
+NE.nconn.fax-all.protus.retry.delay=30000
+
+# FaxStatus stuff
+NE.nconn.fax-all.protus.gateway.status.url=https://www.protusfax.com/protus/xmlwebservices/xmlreports/statusreports.asmx/GetDetailFaxStatus
+# Max number of transaction ids that can be requested for at a time. API documentation states 100.
+NE.nconn.fax-all.protus.gateway.status.max.transactions=100
+NE.nconn.fax-all.protus.gateway.status.conn.request.timeout=5000
+NE.nconn.fax-all.protus.gateway.status.conn.timeout=30000
+NE.nconn.fax-all.protus.gateway.status.socket.timeout=30000
+
+
+#
+# Turn off kamon logging
+#
+kamon.modules.kamon-log-reporter.auto-start = false
+
+#
+# Protus fax provider 
+#
+NE.nconn.fax-all.protus.username=username
+NE.nconn.fax-all.protus.password=password
